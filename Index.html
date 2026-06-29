@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hidden Vote</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    button { font-size: 18px; margin: 10px; padding: 10px 20px; }
+    #hiddenBox { display:none; margin-top:30px; }
+  </style>
+</head>
+<body>
+
+<h2>Planning Vote (Hidden Text)</h2>
+
+<button onclick="vote('A')">Vote A</button>
+<button onclick="vote('B')">Vote B</button>
+
+<p id="status"></p>
+
+<div id="hiddenBox">
+  <h3>Hidden Meaning</h3>
+  <p id="hiddenText"></p>
+</div>
+
+<br>
+<button onclick="reveal()">Reveal Hidden Text</button>
+
+<script>
+function vote(v) {
+  document.getElementById("status").innerText = "You voted: " + v;
+
+  let hidden = "";
+  if (v === "A") hidden = "A = Small / simple task";
+  if (v === "B") hidden = "B = Large / complex task";
+
+  document.getElementById("hiddenText").innerText = hidden;
+}
+
+function reveal() {
+  document.getElementById("hiddenBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
